@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.Arrays;
 import java.util.List;
 
+import app.student.Student;
+
 @Controller
 @ResponseBody //-- means it will be scanned as a bean
 public class HelloWorld {
