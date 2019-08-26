@@ -20,21 +20,31 @@ public class SpringbootApp {
 
 
 
-/*
 
 
 
 
 
 
-//1. About springboot
-// about pom.xml - https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started-first-application.html#getting-started-first-application-dependencies
-// start the app without any mapping ---show default error
-// Tomcat started, dispatcherServlet??
-// hello world program   -- @restcontroller vs @controller  - https://javarevisited.blogspot.com/2017/08/difference-between-restcontroller-and-controller-annotations-spring-mvc-rest.html
-//https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started-first-application.html#getting-started-first-application-annotations
 
 
-// explain the project without db
-//jpa   -- with db
-*/
+
+
+
+
+/**
+ * Our main method delegates to Spring Boot’s SpringApplication class by calling run.
+ * SpringApplication bootstraps our application, starting Spring, which, in turn, starts the auto-configured Tomcat web server.
+ *
+ *
+ *
+ * In Spring:
+ *
+ * public static void main(String[] args) {
+ *       ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+ *       HelloWorld obj = (HelloWorld) context.getBean("helloWorld");
+ *       obj.getMessage();
+ *
+ *       log.info("Exiting the program");
+ *    }
+ */

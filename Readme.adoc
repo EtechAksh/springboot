@@ -1,0 +1,64 @@
+=== Endpoints that are built in this project:
+
+Create an application to store a data of students present in a class room
+        Student (id, name)
+
+1. GET /students  -- should give details of all students
+2. GET /students/{id}  -- should give details of the particular student with that 'id'
+3. POST /students  -- add a new student's details
+4. PUT /students/id  -  update an existing student's details
+5. DELETE /students/id  - deletes the particular student's details
+
+
+=== Springboot annotations (used in this project):
+
+1. @SpringBootApplication
+2. @RestController
+ - @RequestMapping(value = "/path/{var}?param=123", method ="RequestMethod.GET")
+ - @GetMapping(value = "/path")
+ - @PathVariable("var")
+ - @RequestBody - used for request bodies in PUT, POST
+ - @RequestParam("param")
+3. @Service
+4. @Autowired
+5. @Entity
+6. @Id
+
+*NOTE: @Service, @Controller , @Repository all specializations of @Component type (In spring @Component allows implementation classes to be autodetected through the classpath scanning.)*
+
+=== Configuring a springboot app.
+Using  an `application.properties` file enables one to configure certain properties for the springboot app.
+There are certain keys available which need to be defined in the app.props file as per the requirement.
+These predefined keys can be found in : https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+
+=== Spring JPA (Java Persistence API)
+- JPA is an api that let's us to ORM while connecting to a relational db (RDBMS i.e. a sql db like Oracle, PostgreSQL)
+- in RDBMS you'll have tables and keys like primary keys, foreign keys which are relational to one another
+- To connect a Java application to a RDBMS we need to use something like a JDBC
+- JDBC will help tp run sql queries on the dB and will convert the results to an Object instance.
+- ORM allows us to map a class entity to a table so that we don't have to specifically run a query but rather the framework (i.e, Spring) will do it for us
+- JPA is a way for us to use ORM, i.e. it allows us to configure the entity classes and provide them to the framework which will take care of ORM.
+
+Spring Data JPA is a project which allows us to connect to a RDBMS and let's us provide JPA configs. on entity classes and then Spring framework handles the ORM part of it
+
+To create a repository layer:
+1. add `spring-boot-starter-data-jpa`* dependency and a db dependency to pom.xml
+2. Create @Entity class
+3. create an interface which extends CrudRepository class
+4. in the @service class @autowire the repository class creates in step 3. and write services easily using the functions of CrudRepository class
+5. create a controller which will map url's to @service class' functions.
+
+
+*As soon as we include Spring Boot Starter JPA in our project, we get the following features from a wide variety of dependencies:*
+
+- Auto-configuration of an in-memory embedded database, which allows you to run your application without even setting up a database.
+- Auto-import of the JPA API and Hibernate. Adding this dependency will automatically import the JPA API and use Hibernate as the default implementation.
+- Auto-read of the data source and Hibernate configuration from application.properties.
+- Auto-creation of the entities as tables and auto execution of import.sql.
+
+=== Project setup in local:
+1. mark only the `java` folder as source folder (in the module settings) in IntelliJ
+2. you can change the server.port in application.properties file as per your need
+3. download the postman collection present in this project
+4. connect to the port mentioned in `application.properties`
+5. Note: this project is compatible with jdk 1.8 and up
