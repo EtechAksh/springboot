@@ -1,16 +1,14 @@
 package app;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
 import java.util.List;
 
 import app.student.Student;
 
-@Controller
-@ResponseBody //-- means it will be scanned as a bean
+@RestController //-- means it will be scanned as a bean
 public class HelloWorld {
 
     @RequestMapping("/helloWorld")    //{{host}}:8080/helloWorld
